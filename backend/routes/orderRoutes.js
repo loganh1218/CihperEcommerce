@@ -33,6 +33,21 @@ orderRouter.post(
     });
 
     const order = await newOrder.save();
+
+    const message = {
+      from: 'Amazona <amazona@mg.yourdomain.com>',
+      to: `${order.user.name} <${order.user.email}>`,
+      subject: `New order ${order._id}`,
+      html: payOrderEmailTemplate(order),
+    };
+
+    try {
+      await mailgun().messages().send(message);
+      console.log('Order receipt email sent successfully.');
+    } catch (error) {
+      console.log('Error sending order receipt email:', error);
+    }
+
     res.status(201).send({ message: 'New Order Created', order });
   })
 );

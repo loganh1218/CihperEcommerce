@@ -138,7 +138,7 @@
      const submitHandler = async (e) => {
        e.preventDefault();
        try {
-         const { data } = await Axios.post('https://cipher-ecommerce-atise.onrender.com/api/users/forget-password', {
+         const { data } = await Axios.post('/api/users/forget-password', {
            email,
          });
          toast.success(data.message);
@@ -198,7 +198,7 @@
           return;
         }
         try {
-          await Axios.post('https://cipher-ecommerce-atise.onrender.com/api/users/reset-password', {
+          await Axios.post('/api/users/reset-password', {
             password,
             token,
           });

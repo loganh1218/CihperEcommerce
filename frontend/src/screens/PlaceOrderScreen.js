@@ -49,7 +49,7 @@ export default function PlaceOrderScreen() {
       dispatch({ type: 'CREATE_REQUEST' });
 
       const { data } = await Axios.post(
-        'https://cipher-ecommerce-atise.onrender.com/api/orders',
+        'api/orders',
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,

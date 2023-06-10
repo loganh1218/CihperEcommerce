@@ -93,7 +93,7 @@ function ProductScreen() {
     }
     try {
       const { data } = await axios.post(
-        `https://cipher-ecommerce-atise.onrender.com/api/products/${product._id}/reviews`,
+        `api/products/${product._id}/reviews`,
         { rating, comment, name: userInfo.name },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },

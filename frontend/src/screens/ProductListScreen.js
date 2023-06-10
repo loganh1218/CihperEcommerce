@@ -100,7 +100,7 @@ export default function ProductListScreen() {
       try {
         dispatch({ type: 'CREATE_REQUEST' });
         const { data } = await axios.post(
-          'https://cipher-ecommerce-atise.onrender.com/api/products',
+          'api/products',
           {},
           {
             headers: { Authorization: `Bearer ${userInfo.token}` },
